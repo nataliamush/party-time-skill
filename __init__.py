@@ -6,9 +6,9 @@ class PartyTime(MycroftSkill):
         MycroftSkill.__init__(self)
         self.num_asks = 0
 
-    #@intent_file_handler('time.party.intent')
-    #def handle_time_party(self, message):
-    #    self.speak_dialog('time.party')
+    @intent_file_handler('time.party.intent')
+    def handle_time_party(self, message):
+        self.speak_dialog('Its party time')
     
     def converse(self, message):
         utterance_has_time = self.voc_match(message.data['utterances'][0], 'Time')
