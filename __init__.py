@@ -10,6 +10,9 @@ class PartyTime(MycroftSkill):
     def handle_time_party(self, message):
         self.speak_dialog('Its party time')
     
+    def initialize(self):
+        self.schedule_repeating_event(self.make_active, 240)
+
     def converse(self, message):
         utterance_has_time = self.voc_match(message.data['utterances'][0], 'Time')
         if utterance_has_time:
